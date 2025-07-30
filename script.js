@@ -5,14 +5,17 @@ const CHAT_ID = '208643020'; // Замени на свой
 // Автоформат номера телефона
 document.getElementById('userPhone').addEventListener('input', function () {
     let digits = this.value.replace(/\D/g, '');
-    if (digits.length > 1 && digits.startsWith('7')) {
-        digits = '7' + digits.substring(1).replace(/7/g, '');
-    }
+
+    // Начало с 7 или 8 — преобразуем к формату +7
+    if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+    if (!digits.startsWith('7')) digits = '7' + digits;
+
     let formatted = '+7';
     if (digits.length > 1) formatted += '(' + digits.substring(1, 4);
     if (digits.length > 4) formatted += ')' + digits.substring(4, 7);
     if (digits.length > 7) formatted += '-' + digits.substring(7, 9);
     if (digits.length > 9) formatted += '-' + digits.substring(9, 11);
+
     this.value = formatted;
 });
 
