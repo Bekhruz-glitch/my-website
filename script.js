@@ -233,5 +233,5 @@ function getServiceName(serviceKey) {
 // Ручная отправка если Telegram не открылся
 document.getElementById('manualLink').addEventListener('click', function (e) {
     e.preventDefault();
-    alert('Скопируйте этот номер и напишите нам в Telegram: +79991234567');
+    alert('Скопируйте этот номер и напишите нам в Telegram или Whatsapp: +7 917 772 1010');
 });
